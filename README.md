@@ -75,7 +75,7 @@ where `τ_L` and `τ_R` are actual torques, and `τ_L,des`, `τ_R,des` are desir
 To avoid abrupt speed changes:
 
 $$
-v_\text{cmd} =
+v_{cmd} =
 \begin{cases}
 \min(v_\text{cmd} + a, v_\text{desired}) & \text{if } v_\text{cmd} < v_\text{desired} \\
 \max(v_\text{cmd} - a, v_\text{desired}) & \text{otherwise}
@@ -102,34 +102,34 @@ where $a$ is the acceleration increment.
 **Attractive Force:**
 
 $$
-\mathbf{F}_\text{att} = k_\text{att} (\mathbf{q}_\text{goal} - \mathbf{q}), \quad \|\mathbf{q}_\text{goal} - \mathbf{q}\| \leq r_\text{att}
+F_{att} = k_{att} (q_{goal} - q), ||q_{goal} - q|| \leq r_{att}
 $$
 
 **Vertical Force:**
 
 $$
 F_y =\begin{cases}
--k_\text{vert} (\mathbf{1} + \mathbf{a}_\text{v} v) |y| & y > 0 \\
-k_\text{vert} (\mathbf{1} + \mathbf{a}_\text{v} v) |y| & y < 0 \\
+-k_{vert} (1 + a_{v} v) |y| & y \geq 0 \\
+k_{vert} (1 + a_v v) |y| & y \leq 0 \\
 0 & y = 0 \end{cases}
 $$
 
-where $k_\text{vert} = k_{\text{vert}0} (1 + \alpha_v v)$
+where $k_{vert} = k_{vert_{0}} (1 + \alpha_v v)$
 
 **Horizontal Force:**
 
 $$
-F_x = k_\text{horiz} (\mathbf{1} + \mathbf{a}_\text{h} v) \frac{10 - x}{10}
+F_x = k_{horiz} (1 + a_{h} v) \frac{10 - x}{10}
 $$
 
-where $k_\text{horiz} = k_{\text{horiz}0} (1 + \alpha_h v)$
+where $k_{horiz} = k_{horiz_{0}} (1 + \alpha_h v)$
 
 **Repulsive Force:**
 
 $$
-\mathbf{F}_\text{rep} =
+F_{rep} =
 \begin{cases}
-k_\text{rep} \left(\frac{1}{d} - \frac{1}{d_0}\right) \frac{\mathbf{q} - \mathbf{q}_o}{d} & d \leq d_0 \\
+k_{rep} \left(\frac{1}{d} - \frac{1}{d_0}\right) \frac{q - q_o}{d} & d \leq d_0 \\
 0 & d > d_0
 \end{cases}
 $$
@@ -139,21 +139,21 @@ where $d = \|\mathbf{q} - \mathbf{q}_o\|$
 **Vortex Force:**
 
 $$
-\mathbf{F}_\text{vortex} =
+F_{vortex} =
 \begin{cases}
-k_\text{vortex} \frac{\mathbf{p}_\perp}{d^2} & \text{if above obstacle} \\
--k_\text{vortex} \frac{\mathbf{p}_\perp}{d^2} & \text{if below obstacle}
+k_{vortex} {p_\perp}{d^2} & {if above obstacle} \\
+-k_{vortex} {p_\perp}{d^2} & {if below obstacle}
 \end{cases}
 $$
 
-where $\mathbf{p}_\perp = [y, -x]$
+where $p_\perp = [y, -x]$
 
 **Variables:**
 
-- $\mathbf{q}$: Robot position
-- $\mathbf{q}_\text{goal}$: Goal position
-- $\mathbf{q}_o$: Obstacle position
-- $k_\text{att}, k_\text{vert}, k_\text{horiz}, k_\text{rep}, k_\text{vortex}$: Field gains
+- $q$: Robot position
+- $q_{goal}$: Goal position
+- $q_o$: Obstacle position
+- $k_{att}, k_{vert}, k_{horiz}, k_{rep}, k_{vortex}$: Field gains
 - $d_0$: Repulsion threshold
 
 ---
@@ -298,20 +298,20 @@ The backstepping control law is then designed to ensure that $V$ decreases over 
 - Compute desired accelerations:
 
 $$
-v_\text{dot,des} = \dot{v}_\text{ref} - k_1 e_v
+v_{dot,des} = \dot{v_{ref}} - k_1 e_v
 $$
 
 $$
-\omega_\text{dot,des} = \dot{\omega}_\text{ref} - k_2 e_\omega
+\omega_{dot,des} = \dot{\omega_{ref}} - k_2 e_\omega
 $$
 - Convert to desired torques:
 
 $$
-\tau_\text{sum,des} = \frac{2m}{r} v_\text{dot,des}
+\tau_{sum,des} = \frac{2m}{r} v_{dot,des}
 $$
 
 $$
-\tau_\text{diff,des} = \frac{mw}{r} \omega_\text{dot,des}
+\tau_{diff,des} = \frac{mw}{r} \omega_{dot,des}
 $$
 
 $$
