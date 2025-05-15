@@ -88,12 +88,12 @@ where $a$ is the acceleration increment.
 
 ### Plant Parameters
 
-  - \(m = 2.0 \, \text{kg}\): robot mass  
-  - \(r = 0.05 \, \text{m}\): wheel radius  
-  - \(w = 0.2 \, \text{m}\): wheelbase  
-  - \(\gamma = 0.15 \, \text{s}\): motor time constant  
-  - \(\mu, \mu_\omega\): slippage coefficients  
-  - \(dt = 0.01 \, \text{s}\): simulation time step
+  - \(m = 2.0 \, \{kg}\): robot mass  
+  - \(r = 0.05 \, \{m}\): wheel radius  
+  - \(w = 0.2 \, \{m}\): wheelbase  
+  - $\gamma = 0.15 , {s}\)$: motor time constant  
+  - $\mu, \mu_{\omega}$: slippage coefficients  
+  - \(dt = 0.01 \, s\): simulation time step
   
 ---
 
