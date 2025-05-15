@@ -36,6 +36,8 @@ where:
 
 ### Robot Kinematics and Dynamics (State Derivatives with Slippage)
 
+![Matrix Equation](figures/math_model.png)
+
 The system evolves over time according to the following nonlinear discrete-time dynamics, which include both **longitudinal** and **angular slippage**:
 
 v       = v_cmd - μ · v_cmd · dt + slip_v  
@@ -157,6 +159,10 @@ where $p_\perp = [y, -x]$
 - $d_0$: Repulsion threshold
 
 ---
+
+## Artificial Potential Fields Animation
+
+![Matrix Equation](figures/animation_apf.gif)
 
 ## PD DC Motors Control
 
@@ -371,15 +377,19 @@ $$
 
 ## Results
 
-### Robot movement in Artificial Potential Fields
-
-*To be completed.*
-
 ### PD control
 
-*To be completed.*
-
+![Matrix Equation](figures/speed_pd.png)
+![Matrix Equation](figures/angular_speed_pd.png)
+![Matrix Equation](figures/acc_pd.png)
+![Matrix Equation](figures/angular_acc_pd.png)
+![Matrix Equation](figures/traj_pd.png)
 ### Backstepping control
 
+![Matrix Equation](figures/speed_back.png)
+![Matrix Equation](figures/angular_speed_back.png)
+![Matrix Equation](figures/acc_back.png)
+![Matrix Equation](figures/angular_acc_back.png)
+![Matrix Equation](figures/traj_back.png)
 *To be completed.*
 
