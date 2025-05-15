@@ -22,6 +22,21 @@ The robot's linear speed, acceleration, angular speed, and angular acceleration 
 The plant is a planar **differential drive mobile robot**. It consists of two independently actuated wheels mounted on either side of the robot, separated by a fixed wheelbase. The robot operates on a 2D plane with a bounded workspace and is subject to slippage.
 
 
+$$\dot{x} = v \cos\theta$$ 
+
+$$\dot{y} = v \sin\theta$$
+
+$$\dot{\theta} = \omega$$
+
+$$\dot{v} = \frac{r}{2m} (\tau_L + \tau_R) + \text{slip}_v$$
+
+$$\dot{\omega} = \frac{r}{mw} (\tau_R - \tau_L) + \text{slip}_\omega$$
+
+$$\dot{\tau}_L = \frac{1}{\gamma} (-\tau_L + a_L)$$
+
+$$\dot{\tau}_R = \frac{1}{\gamma} (-\tau_R + a_R)$$
+
+
 
 ### State Vector
 
